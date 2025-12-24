@@ -1,73 +1,89 @@
-# Welcome to your Lovable project
+# Completely Wrong DOB Guesser
 
-## Project info
+A small, playful web app that "guesses" a user's date of birth based on a short personality / preference quiz. Built with TypeScript, Vite, and Tailwind CSS — intentionally unreliable and fun.
 
-**URL**: https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID
+> ⚠️ This project is a novelty/party app — the guesses are not serious and should not be used for any important purpose.
 
-## How can I edit this code?
+## Demo
+Run locally to try it out (see Installation). If you publish, replace this with a link to the live demo.
 
-There are several ways of editing your application.
+## Features
+- Short interactive quiz (slider, tiles, and multiple-choice questions)
+- Lightweight single-page app using Vite
+- Styled with Tailwind CSS
+- Playful UI with animated progress and transitions
 
-**Use Lovable**
+## Tech stack
+- TypeScript
+- Vite
+- Tailwind CSS
+- Plain HTML/CSS/JS for the minimal entry (index.html)
+- Optional: Bun or npm for package management (repo contains bun.lockb and package-lock.json)
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and start prompting.
+## Getting started
 
-Changes made via Lovable will be committed automatically to this repo.
-
-**Use your preferred IDE**
-
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
-
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
+Clone the repository:
+```bash
+git clone https://github.com/NoticeableStar/completely-wrong-dob-guesser.git
+cd completely-wrong-dob-guesser
 ```
 
-**Edit a file directly in GitHub**
+Install dependencies (choose one):
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+- npm
+```bash
+npm install
+```
 
-**Use GitHub Codespaces**
+- bun
+```bash
+bun install
+```
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+Run the dev server (Vite default):
+```bash
+# npm
+npm run dev
 
-## What technologies are used for this project?
+# or bun
+bun run dev
+```
+Open http://localhost:5173 (or the port Vite reports) in your browser.
 
-This project is built with:
+Build for production:
+```bash
+npm run build
+# Preview build
+npm run preview
+```
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+## Project structure (high-level)
+- index.html — app entry
+- src/ — application source (UI, quiz data, components)
+- public/ — static assets
+- tailwind.config.ts — Tailwind configuration
+- package.json — npm scripts & dependencies
 
-## How can I deploy this project?
+## Contributing
+Small project — contributions welcome!
+- Add or tweak quiz questions in src/data (or wherever questions are defined)
+- Improve UI/UX, animations, and accessibility
+- Add tests or CI if you want to make the guessing more deterministic (or intentionally more wrong)
 
-Simply open [Lovable](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and click on Share -> Publish.
+Please open an issue or PR with a short description of your change.
 
-## Can I connect a custom domain to my Lovable project?
+## Ideas / Roadmap
+- Add shareable results (image + text)
+- Add localization / language support
+- Add analytics for which guesses people find funniest
+- Make an optional "honest" mode that reveals how the guess was derived
 
-Yes, you can!
+## License
+Add a LICENSE file if you want a specific license. If you want me to add one (MIT, Apache-2.0, etc.), tell me which license to include.
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+## Acknowledgements
+- Built using Vite and Tailwind CSS
+- Project scaffolded/edited with developer tools
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+## Contact
+Author: [NoticeableStar](https://github.com/NoticeableStar)
