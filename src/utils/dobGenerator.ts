@@ -18,16 +18,61 @@ export function generateDOB(answers: Answer[], retryCount: number = 0): DOBResul
         yearModifier -= Math.floor(Math.random() * 3) + 1;
       }
     }
-    if (answer.questionId === 'button-hesitation') {
-      // Hesitation = older by 1-3 years
-      if (answer.value === 'always' || answer.value === 'hover') {
-        yearModifier -= Math.floor(Math.random() * 3) + 1;
+    if (answer.questionId === 'alarms') {
+      // More alarms = older (responsible... or anxious)
+      if (answer.value === '4+') {
+        yearModifier -= Math.floor(Math.random() * 2) + 1;
+      }
+      if (answer.value === 'natural') {
+        yearModifier += Math.floor(Math.random() * 3); // Liar energy = younger
       }
     }
-    if (answer.questionId === 'browser-tabs') {
-      // Never closing tabs = slightly younger
-      if (answer.value === 'never') {
+    if (answer.questionId === 'birthdays') {
+      // Dreading birthdays = older
+      if (answer.value === 'dread') {
+        yearModifier -= Math.floor(Math.random() * 4) + 2;
+      }
+    }
+    if (answer.questionId === 'age-feeling') {
+      // Feeling older = actually older (fake correlation)
+      if (answer.value === 'older') {
+        yearModifier -= Math.floor(Math.random() * 3) + 1;
+      }
+      if (answer.value === 'younger') {
         yearModifier += Math.floor(Math.random() * 2) + 1;
+      }
+    }
+    if (answer.questionId === 'truly-rested') {
+      // Not remembering rest = older energy
+      if (answer.value === 'dont-remember') {
+        yearModifier -= Math.floor(Math.random() * 2) + 1;
+      }
+    }
+    if (answer.questionId === 'time-of-day') {
+      // Late night people = slightly younger vibes
+      if (answer.value === 'late-night') {
+        yearModifier += Math.floor(Math.random() * 2);
+      }
+    }
+    if (answer.questionId === 'decisiveness') {
+      // Low decisiveness = older (overthinking increases with age, apparently)
+      const value = Number(answer.value);
+      if (value < 30) {
+        yearModifier -= Math.floor(Math.random() * 2) + 1;
+      } else if (value > 80) {
+        yearModifier += Math.floor(Math.random() * 2);
+      }
+    }
+    if (answer.questionId === 'sleep-schedule') {
+      // Chaotic sleep = younger energy
+      if (answer.value === 'chaotic' || answer.value === 'nonexistent') {
+        yearModifier += Math.floor(Math.random() * 2) + 1;
+      }
+    }
+    if (answer.questionId === 'heavy-month') {
+      // November/February = older energy (seasonal affective correlation?)
+      if (answer.value === 'november' || answer.value === 'february') {
+        yearModifier -= Math.floor(Math.random() * 2);
       }
     }
   });
@@ -44,7 +89,9 @@ export function generateDOB(answers: Answer[], retryCount: number = 0): DOBResul
   // Generate birth time for extra specificity
   const hour = Math.floor(Math.random() * 24);
   const minute = Math.floor(Math.random() * 60);
-  const birthTime = `${hour.toString().padStart(2, '0')}:${minute.toString().padStart(2, '0')} ${hour >= 12 ? 'PM' : 'AM'}`;
+  const period = hour >= 12 ? 'PM' : 'AM';
+  const displayHour = hour === 0 ? 12 : hour > 12 ? hour - 12 : hour;
+  const birthTime = `${displayHour}:${minute.toString().padStart(2, '0')} ${period}`;
   
   // Random accuracy between 90-99%
   const accuracy = Math.floor(Math.random() * 10) + 90;

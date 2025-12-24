@@ -1,13 +1,15 @@
 export interface Question {
   id: string;
   question: string;
-  type: 'choice' | 'font' | 'slider';
+  type: 'choice' | 'font' | 'slider' | 'month';
   options?: QuestionOption[];
   sliderConfig?: {
     min: number;
     max: number;
-    labels: [string, string];
+    microcopy?: string;
   };
+  showProcessing?: boolean;
+  microcopy?: string;
 }
 
 export interface QuestionOption {
