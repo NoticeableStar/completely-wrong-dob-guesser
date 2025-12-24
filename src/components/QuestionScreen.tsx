@@ -73,29 +73,15 @@ export function QuestionScreen({ questions, onComplete }: QuestionScreenProps) {
       {/* Background */}
       <div className="absolute inset-0 glow-effect opacity-30" />
 
-      {/* Progress dots */}
+      {/* Progress bar */}
       <div className="max-w-2xl mx-auto w-full mb-12 relative z-10">
-        <div className="flex items-center justify-center gap-2">
-          {questions.map((_, index) => (
-            <motion.div
-              key={index}
-              className={cn(
-                'w-2.5 h-2.5 rounded-full transition-all duration-300',
-                index < currentIndex
-                  ? 'bg-primary'
-                  : index === currentIndex
-                  ? 'bg-primary scale-125'
-                  : 'bg-muted-foreground/30'
-              )}
-              initial={false}
-              animate={{
-                scale: index === currentIndex ? 1.25 : 1,
-              }}
-            />
-          ))}
-          <span className="ml-3 text-xs text-muted-foreground font-body">
-            ({questions.length})
-          </span>
+        <div className="h-1 bg-secondary rounded-full overflow-hidden">
+          <motion.div
+            className="h-full bg-primary"
+            initial={{ width: 0 }}
+            animate={{ width: `${((currentIndex + 1) / questions.length) * 100}%` }}
+            transition={{ duration: 0.5, ease: 'easeOut' }}
+          />
         </div>
       </div>
 
